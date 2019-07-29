@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service ApiServer {
+    rpc Reload (ReloadReq) returns (ReloadRep) {}
+}
+
+
+message ReloadReq {
+    string Name = 1;
+}
+
+message ReloadRep {
+    bool Ok =1;
+}
