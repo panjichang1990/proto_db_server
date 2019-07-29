@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+service kfkServer {
+    rpc RegLog (Reg) returns (BoolBack) {}
+
+}
+
+message User {
+    int64 AccountId = 1;
+    int64 UserId = 2;
+    int32 CpsId = 3;
+    int32 GameId = 4;
+    int32 ServerId = 5;
+}
+//注册日志
+message Reg {
+    int64 T = 1;
+    User U = 2;
+}
+
+message BoolBack {
+    bool ok=1;
+}
+
+//登录日志
+message Login {
+    int64 T = 1;
+    User U = 2;
+}
+
+message LoginOut{
+    int64 T=1 ;
+    User U=2 ;
+}
+
+message ButtonLog{
+    int64 UserId =1;
+    string UuId =2;
+    string Ip =3;
+
+}

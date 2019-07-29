@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+service ChildServer {
+    rpc Goods (GoodsRequest) returns (GoodsResponse) {}
+    rpc Zone (ZoneRequest) returns (ZoneResponse) {}
+    rpc Item (ItemRequest) returns (ItemResponse) {}
+    rpc User (UserRequest) returns (UserResponse) {}
+    rpc ButtonAdd (ButtonAddRequest) returns (BoolResponse) {}
+    rpc ButtonDel (ButtonDelRequest) returns (BoolResponse) {}
+    rpc CpsAdd (CpsAddRequest) returns (CpsAddResponse) {}
+}
+
+message GoodsResponse {
+    repeated goods data = 1;
+}
+
+message GoodsRequest {
+    bool a = 1;
+}
+message ZoneRequest {
+    bool a = 1;
+}
+
+message ZoneResponse {
+    repeated zone data = 1;
+}
+message goods {
+    int32 goodsId = 1;
+    string goodsName = 2;
+}
+
+message zone {
+    int32 zoneId = 1;
+    string zoneName = 2;
+}
+
+message ItemResponse {
+    repeated item data = 1;
+}
+
+message ItemRequest {
+    bool a = 1;
+}
+
+message item {
+    int32 id = 1;
+    string name = 2;
+}
+
+message user {
+    int64 accountId = 1;
+    int64 userId = 2;
+    string nick = 3;
+    string name = 4;
+}
+
+message UserResponse {
+    user data = 1;
+}
+
+message UserRequest {
+    int64 accountId = 1;
+    int64 userId = 2;
+}
+
+message ButtonAddRequest {
+    int32 id =1;
+    string name =2;
+}
+
+message ButtonDelRequest {
+    int32 id =1;
+}
+
+message BoolResponse {
+    bool ok =1;
+}
+
+message CpsAddRequest {
+    int32 Id =1;
+    string Name =2;
+}
+
+message CpsAddResponse {
+    bool ok=1;
+}

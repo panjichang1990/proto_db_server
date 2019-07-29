@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+service PfAdmin {
+    rpc Cps (CpsRequest) returns (CpsResponse) {}
+    rpc Game (GameRequest) returns (GameResponse) {}
+    rpc GoodsUpdate (GoodsAddRequest) returns (GoodsUpdateResponse) {}
+    rpc GoodsDel (GoodsDelRequest) returns (GoodsDelResponse) {}
+    rpc OwnCharge (OwnChargeRequest) returns (OwnChargeResponse) {}
+    rpc Zone (ZoneAddRequest) returns (ZoneAddResponse) {}
+    rpc ZoneDel (ZoneDelRequest) returns (ZoneDelResponse) {}
+    rpc Item (ItemAddRequest) returns (ItemAddResponse) {}
+    rpc Button (ButtonRequest) returns (ButtonResponse) {}
+}
+
+message CpsRequest {
+    int32 gameId = 1;
+    int32 adminId = 2;
+}
+
+message CpsResponse {
+    repeated Cps Data = 1;
+}
+
+message GoodsUpdateResponse{
+    bool a=1;
+}
+
+message GoodsDelResponse{
+    bool a=1;
+}
+message OwnChargeResponse{
+    bool a=1;
+}
+message Cps {
+    int32 Id = 1;
+    string Name = 2;
+}
+
+message GameRequest {
+    int32 gameId = 1;
+    int32 adminId = 2;
+}
+
+
+message GameResponse {
+    string appKey = 1;
+    string appSecret = 2;
+    string gameName = 3;
+    int32 gameId = 4;
+}
+
+message GoodsAddRequest {
+    int32 gameId = 1;
+    int32 adminId = 2;
+    int32 goodsId = 3;
+    string goodsName = 4;
+    int32 price = 5;
+    int32 limitNum = 6;
+}
+
+
+
+message GoodsDelRequest {
+    int32 gameId = 1;
+    int32 adminId = 2;
+    int32 goodsId = 3;
+}
+
+message OwnChargeRequest {
+    int32 gameId = 1;
+    int32 adminId = 2;
+    int32 goodsId = 3;
+    string goodsName = 4;
+    string zoneId = 5;
+    int64 accountId = 6;
+    int64 userId = 7;
+    string adminName =8;
+}
+
+message ItemAddRequest {
+    int32 gameId =1;
+    int32 itemId =2;
+    string itemName =3;
+}
+
+message ItemAddResponse {
+    bool a =1;
+}
+
+message ZoneAddRequest {
+    int32 gameId=1;
+    string zid =2;
+    string zName=3;
+}
+
+message ZoneAddResponse {
+    bool a =1;
+}
+
+message ZoneDelRequest {
+    int32 gameId=1;
+    string zid =2;
+}
+
+message ZoneDelResponse {
+    bool a =1;
+}
+
+message ButtonRequest {
+    int32 gameId =1;
+}
+
+message button {
+    int32 id =1;
+    string name =2;
+}
+
+message ButtonResponse{
+    repeated button Data =1;
+}
