@@ -8,6 +8,16 @@ service ChildServer {
     rpc ButtonAdd (ButtonAddRequest) returns (BoolResponse) {}
     rpc ButtonDel (ButtonDelRequest) returns (BoolResponse) {}
     rpc CpsAdd (CpsAddRequest) returns (CpsAddResponse) {}
+    rpc GetNoRealReg(NoRealRegReq)returns(NoRealRegRep){}
+}
+
+message NoRealRegReq{
+    string cps=1;
+}
+
+message NoRealRegRep{
+    int64 regNum =1;
+    int64 makeRoleNum =2 ;
 }
 
 message GoodsResponse {
